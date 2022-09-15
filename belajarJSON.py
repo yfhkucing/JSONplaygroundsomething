@@ -1,5 +1,6 @@
 import json
 import numpy as np
+import joblib
 
 iniString2 = '''{
     "code": 200,
@@ -7,7 +8,7 @@ iniString2 = '''{
     "data": [
         {
             "id": 1,
-            "age": 40.0,
+            "age": 20.0,
             "sex": 0.0,
             "cp": 1.0,
             "trestbps": 130.0,
@@ -21,7 +22,7 @@ iniString2 = '''{
         },
         {
             "id": 2,
-            "age": 40.0,
+            "age": 35.0,
             "sex": 0.0,
             "cp": 1.0,
             "trestbps": 130.0,
@@ -72,7 +73,20 @@ n = len(data) - 1
 
 arr = np.array(list) 
 arr2 = arr.reshape(m,n)
-print(dicti["data"])
+
+
+def predict(value):
+    model = joblib.load("randomForest_joblib.pkl")
+    pre = value.reshape(1,-1)
+    res = model.predict(pre)
+    print(pre)
+    print(res)
+    
+
+print(arr2)
 print("ini spasi")
-print(data)
+
+for i in range(m):
+    predict(arr2[i])
+    i=i+1
 
