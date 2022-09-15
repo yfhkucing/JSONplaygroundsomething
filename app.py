@@ -5,9 +5,6 @@ from urllib import request
 from flask import Flask,request
 
 app = Flask(__name__)
-dicti = json.loads(request.data)
-data = dicti["data"]
-list = []
 
 @app.route('/',methods=['POST'])
 
@@ -15,7 +12,7 @@ def jalan():
     dicti = json.loads(request.data)
     data = dicti["data"]
     list = []
-    
+
     for data in dicti["data"]:
         list.insert(0,data["age"])
         list.insert(1,data["sex"]) 
