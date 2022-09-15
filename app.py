@@ -48,3 +48,5 @@ def jalan():
         predict(arr2[i])
         i=i+1
 
+if __name__=='__main__':
+    app.run(debug=True)
