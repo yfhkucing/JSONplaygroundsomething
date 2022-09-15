@@ -73,10 +73,11 @@ n = len(data) - 1
 
 arr = np.array(list) 
 arr2 = arr.reshape(m,n)
+model = joblib.load("randomForest_joblib.pkl")
 
 
 def predict(value):
-    model = joblib.load("randomForest_joblib.pkl")
+    
     pre = value.reshape(1,-1)
     res = model.predict(pre)
     print(pre)
