@@ -40,10 +40,11 @@ def jalan():
         res = model.predict(pre)
         #print(pre)
         print(res)
+        return str(res)
         
 
-    print(arr2)
-    print("ini spasi")
+    #print(arr2)
+    #print("ini spasi")
 
     for i in range(m):
         predict(arr2[i])
